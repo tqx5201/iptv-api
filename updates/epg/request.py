@@ -54,7 +54,7 @@ def parse_epg(epg_content):
 async def get_epg(names=None, callback=None):
     urls = get_urls_from_file(constants.epg_path)
     if not os.getenv("GITHUB_ACTIONS") and config.cdn_url:
-        urls = [join_url(config.cdn_url, url) if "raw.githubusercontent.com" in url else url
+        urls = [join_url(config.cdn_url, url) if "raw.bgithub.xyz" in url else url
                 for url in urls]
     urls_len = len(urls)
     pbar = tqdm_asyncio(
@@ -88,8 +88,8 @@ async def get_epg(names=None, callback=None):
                     channels, programmes = parse_epg(content)
                     for channel_id, display_name in channels.items():
                         display_name = format_channel_name(display_name)
-                        if names and display_name not in names:
-                            continue
+                        #if names and display_name not in names:
+                            #continue
                         if channel_id not in all_result_verify and display_name not in all_result_verify:
                             if not channel_id.isdigit():
                                 all_result_verify.add(channel_id)
