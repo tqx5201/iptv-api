@@ -78,7 +78,7 @@ async def get_channels_by_fofa(urls=None, multicast=False, callback=None):
         fofa_urls_len = len(fofa_urls)
         pbar = tqdm_asyncio(
             total=fofa_urls_len,
-            desc=f"Processing fofa for {'multicast' if multicast else 'hotel'}",
+            desc=f"xxxx  Processing fofa for {'multicast' if multicast else 'hotel'}",
         )
         start_time = time()
         mode_name = "组播" if multicast else "酒店"
